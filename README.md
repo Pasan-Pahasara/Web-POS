@@ -1,8 +1,6 @@
 # Web-POS
 A JavaScript POS System made from SPA (Single-page application)
 
-This is a small software creation made for uploading images using Spring MVC
-
 ###  `Languages`
 * HTML
 * Javascript
