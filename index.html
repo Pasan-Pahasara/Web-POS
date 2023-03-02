@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>POS | Dashboard</title>
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+</head>
+<body>
+<section>
+    <!--header start-->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-transparent border-bottom shadow-lg sticky-top rounded-start rounded-end">
+            <div class="container-fluid">
+                <h2><a class="navbar-brand" href="#"><img src="./assets/img/shopping-cart.png"> POS <span
+                        class="green-text">System</span></a></h2>
+
+                <!--Toggle button-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item" id="homeBtn">
+                            <a class="nav-link" aria-current="page" href="#"><i
+                                    class="bi bi-house-fill"></i>
+                                Home</a>
+                        </li>
+                        <li class="nav-item" id="customersBtn">
+                            <a class="nav-link" aria-current="page" href="#"><i
+                                    class="bi bi-people-fill"></i> Customers</a>
+                        </li>
+                        <li class="nav-item" id="itemsBtn">
+                            <a class="nav-link" aria-current="page" href="#"><i
+                                    class="bi bi-handbag-fill"></i> Items</a>
+                        </li>
+                        <li class="nav-item" id="placeOrderBtn">
+                            <a class="nav-link" aria-current="page" href="#"><i
+                                    class="bi bi-cart-check-fill"></i>
+                                Place Orders</a>
+                        </li>
+                        <li class="nav-item" id="OrderDetailsBtn">
+                            <a class="nav-link" aria-current="page" href="#"><i
+                                    class="bi bi-card-checklist"></i>
+                                Orders Details</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav me-6 mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#"><i class="bi bi-person-plus-fill"></i>
+                                Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#"><i class="bi bi-box-arrow-right"></i>
+                                Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--header end-->
+
+    <!--home section start-->
+    <main id="homeSection">
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="assets/img/1.jpg"></div>
+                <div class="swiper-slide"><img src="assets/img/2.webp"></div>
+                <div class="swiper-slide"><img src="assets/img/3.jpg"></div>
+                <div class="swiper-slide"><img src="assets/img/4.webp"></div>
+                <div class="swiper-slide"><img src="assets/img/5.jpg"></div>
+                <div class="swiper-slide"><img src="assets/img/6.jpg"></div>
+                <div class="swiper-slide"><img src="assets/img/7.png"></div>
+                <div class="swiper-slide"><img src="assets/img/8.jpg"></div>
+                <div class="swiper-slide"><img src="assets/img/9.jpg"></div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+    <!--home section end-->
+</section>
+<!--All Section-->
+<section class="container-fluid">
+    <!--customer section start-->
+    <main id="customerSection" class="row align-items-center justify-content-center">
+        <!-- Search bar -->
+        <div class="row">
+            <nav class="navbar">
+                <div class="container-fluid d-flex flex-md-column flex-sm-row">
+                    <form class="d-flex flex-column flex-sm-row ubFt" role="search">
+                        <input class="form-control me-1" type="search" id="customerSearchBar" placeholder="Input Customer ID"
+                               aria-label="Search">
+                        <button class="btn btn-outline-success m-1" id="btnCustomerSearch" type="button">Search</button>
+                        <button class="btn btn-outline-secondary m-1" id="btnCustomerSearchClear" type="button">Clear
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Update and Delete Buttons -->
+        <div class="row">
+            <nav class="navbar ubFt">
+                <div class="container-fluid justify-content-center gap-2 d-flex flex-xxl-row">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#customerUpdateModal"
+                            data-bs-whatever="@mdo">Update
+                    </button>
+                    <button type="button" id="btnCusDelete" class="btn btn-danger">Delete</button>
+                    <button type="button" id="btnViewAllCustomer" class="btn btn-warning yellow-button black-text">View All
+                        Customers
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <section
+                class="d-flex flex-column h-50 col-10 col-xl-9 bg-white shadow-lg rounded-5 align-items-center justify-content-around pt-4">
+            <!-- Table -->
+            <div class="d-flex overflow-auto h-70 w-75 rounded-2">
+                <table class="table table-striped table-hover">
+                    <thead class="green-hd text-white sticky-top ubFt">
+                    <tr>
+                        <th scope="col">Customer ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Salary</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tblCustomer">
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Adding Customers Button -->
+            <button type="button" class="btn btn-dark ubFt" data-bs-toggle="modal" data-bs-target="#customerModal"
+                    data-bs-whatever="@mdo"><i class="bi bi-plus"></i>
+                New Customer
+            </button>
+
+            <!-- Start Customer Added Modal Fade -->
+            <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customerModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header green-hd">
+                            <h5 class="modal-title text-white" id="customerModalLabel">New Customer</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <!-- Form -->
+                            <form class="ubFt">
+                                <div class="ms-3 me-3">
+                                    <label for="customer-id" class="col-form-label">Customer ID:</label>
+                                    <input type="text" class="form-control" disabled id="customer-id">
+                                    <small class="control-error text-danger" id="lblCusID"></small>
+                                </div>
+                                <div class="ms-3 me-3">
+                                    <label for="customer-name" class="col-form-label">Customer Name:</label>
+                                    <input type="text" class="form-control" id="customer-name">
+                                    <small class="control-error text-danger" id="lblCusName"></small>
+                                </div>
+                                <div class="ms-3 me-3">
+                                    <label for="customer-address" class="col-form-label">Customer Address:</label>
+                                    <input type="text" class="form-control" id="customer-address">
+                                    <small class="control-error text-danger" id="lblCusAddress"></small>
+                                </div>
+                                <div class="ms-3 me-3">
+                                    <label for="customer-salary" class="col-form-label">Customer Salary:</label>
+                                    <input type="text" class="form-control" id="customer-salary">
+                                    <small class="control-error text-danger" id="lblCusSalary"></small>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer ubFt">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="clearCustomer" class="btn btn-warning">Clear</button>
+                            <button type="button" id="newCustomer" class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Ended Customer Added Modal Fade -->
+
+            <!-- Start Customer Update Modal Fade -->
+            <div class="modal fade" id="customerUpdateModal" tabindex="-1" aria-labelledby="customerUpdateModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-warning">
+                            <h5 class="modal-title text-white" id="customerUpdateModalLabel">Update Customer</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <!-- Form -->
+                            <form class="ubFt">
+                                <div>
+                                    <label for="customerID" class="col-form-label">Customer ID:</label>
+                                    <input type="text" class="form-control" id="customerID">
+                                    <small class="control-error text-danger"></small>
+                                </div>
+                                <div>
+                                    <label for="customerName" class="col-form-label">Customer Name:</label>
+                                    <input type="text" class="form-control" id="customerName">
+                                    <small class="control-error text-danger"></small>
+                                </div>
+                                <div>
+                                    <label for="customerAddress" class="col-form-label">Customer Address:</label>
+                                    <input type="text" class="form-control" id="customerAddress">
+                                    <small class="control-error text-danger"></small>
+                                </div>
+                                <div>
+                                    <label for="customerSalary" class="col-form-label">Customer Salary:</label>
+                                    <input type="text" class="form-control" id="customerSalary">
+                                    <small class="control-error text-danger"></small>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="clearUpdateCustomer" class="btn btn-warning">Clear</button>
+                            <button type="button" id="updateCustomerBtn" class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Ended Customer Update Modal Fade -->
+
+        </section>
+    </main>
+    <!--customer section end-->
+
+    <!--item section start-->
+    <main id="itemSection" class="row align-items-center justify-content-center">
+        <!-- Search bar -->
+        <div class="row">
+            <nav class="navbar">
+                <div class="container-fluid d-flex flex-md-column flex-sm-row">
+                    <form class="d-flex flex-column flex-sm-row ubFt" role="search">
+                        <input class="form-control me-1" type="search" id="itemSearchBar"
+                               placeholder="Input Item Code"
+                               aria-label="Search">
+                        <button class="btn btn-outline-success m-1" id="btnItemSearch" type="button">Search</button>
+                        <button class="btn btn-outline-secondary m-1" id="btnItemSearchClear" type="button">Clear</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Update and Delete Buttons -->
+        <div class="row">
+            <nav class="navbar ubFt">
+                <div class="container-fluid justify-content-center gap-2 d-flex flex-xxl-row">
+                    <button type="button" id="btnItemUpdate" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#updateModal"
+                            data-bs-whatever="@mdo">Update
+                    </button>
+                    <button type="button" id="btnItemDelete" class="btn btn-danger">Delete</button>
+                    <button type="button" id="btnViewAllItem" class="btn btn-warning yellow-button black-text">View All
+                        Items
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <section
+                class="d-flex flex-column h-50 col-10 col-xl-9 bg-white shadow-lg rounded-5 align-items-center justify-content-evenly pt-4">
+            <!-- Table -->
+            <div class="d-flex overflow-auto h-70 w-75 rounded-2">
+                <table class="table table-striped table-hover">
+                    <thead class="green-hd text-white sticky-top ubFt">
+                    <tr>
+                        <th scope="col">Item Code</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Qty On Hand</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tblItem">
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Adding Items Button -->
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    data-bs-whatever="@mdo"><i class="bi bi-plus"></i>
+                New Items
+            </button>
+
+            <!-- Start Item Added Modal Fade -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header green-hd">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">New Item</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <!-- Form -->
+                            <form class="ubFt">
+                                <div>
+                                    <label for="item-id" class="col-form-label">Item Code:</label>
+                                    <input type="text" class="form-control" disabled id="item-id">
+                                    <small class="control-error text-danger" id="lblItemID"></small>
+                                </div>
+                                <div>
+                                    <label for="item-name" class="col-form-label">Item Name:</label>
+                                    <input type="text" class="form-control" id="item-name">
+                                    <small class="control-error text-danger" id="lblItemName"></small>
+                                </div>
+                                <div>
+                                    <label for="item-price" class="col-form-label">Item Price:</label>
+                                    <input type="text" class="form-control" id="item-price">
+                                    <small class="control-error text-danger" id="lblItemAddress"></small>
+                                </div>
+                                <div>
+                                    <label for="item-quantity" class="col-form-label">Item Quantity:</label>
+                                    <input type="text" class="form-control" id="item-quantity">
+                                    <small class="control-error text-danger" id="lblItemSalary"></small>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer ubFt">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="clearItem" class="btn btn-warning">Clear</button>
+                            <button type="button" id="newItem" class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Ended Item Added Modal Fade -->
+
+            <!-- Start Item Update Modal Fade -->
+            <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-warning">
+                            <h5 class="modal-title text-white" id="updateModalLabel">Update Item</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <!-- Form -->
+                            <form class="ubFt">
+                                <div>
+                                    <label for="itemID" class="col-form-label">Item Code:</label>
+                                    <input type="text" class="form-control" id="itemID">
+                                    <small class="control-error text-danger" id="lblUpdateItemID"></small>
+                                </div>
+                                <div>
+                                    <label for="itemName" class="col-form-label">Item Name:</label>
+                                    <input type="text" class="form-control" id="itemName">
+                                    <small class="control-error text-danger" id="lblUpdateItemName"></small>
+                                </div>
+                                <div>
+                                    <label for="itemPrice" class="col-form-label">Item Price:</label>
+                                    <input type="text" class="form-control" id="itemPrice">
+                                    <small class="control-error text-danger" id="lblUpdateItemAddress"></small>
+                                </div>
+                                <div>
+                                    <label for="itemQuantity" class="col-form-label">Item Quantity:</label>
+                                    <input type="text" class="form-control" id="itemQuantity">
+                                    <small class="control-error text-danger" id="lblUpdateItemSalary"></small>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="clearUpdateItem" class="btn btn-warning">Clear</button>
+                            <button type="button" id="updateItemBtn" class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Ended Item Update Modal Fade -->
+
+        </section>
+    </main>
+    <!--item section end-->
+
+    <!--place orderDTO section start-->
+    <main id="placeOrderSection" class="row justify-content-center ubFt">
+        <div class="row justify-content-evenly h-50 ubFt">
+            <!--invoice section-->
+            <div class="col-10 col-md-5 col-lg-4 p-3 mt-5 bg-white shadow-lg rounded-5 ubFt" style="height: max-content">
+                <h3 class="text-center bg-success p-2 text-light rounded-5">Invoice</h3>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="orderId" class="form-label">Order ID :</label>
+                        <input class="form-control" disabled id="orderId" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="orderDate" class="form-label">Order Date :</label>
+                        <input class="form-control" id="orderDate" type="date">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="cusId" class="form-label">Customer ID :</label>
+                        <select aria-label="Default select example" class="form-select" id="cusId">
+                            <option selected>-Select Customer-</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="customerName" class="form-label">Name :</label>
+                        <input class="form-control" disabled id="cusName" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="cusAddress" class="form-label">Address :</label>
+                        <input class="form-control" disabled id="cusAddress" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="cusSalary" class="form-label">Salary :</label>
+                        <input class="form-control" disabled id="cusSalary" type="text">
+                    </div>
+                </div>
+            </div>
+            <!--items section-->
+            <div class="col-10 col-md-5 col-lg-4 p-3 mt-5 bg-white shadow-lg rounded-5 ubFt" style="height: max-content">
+                <h3 class="text-center bg-success p-2 text-light rounded-5">Items</h3>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="cmbCode" class="form-label">Item Code :</label>
+                        <select aria-label="Default select example" class="form-select" id="cmbCode">
+                            <option selected>-Select Item-</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="iName" class="form-label">Item Name :</label>
+                        <input class="form-control" disabled id="iName" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="iPrice" class="form-label">Unit Price :</label>
+                        <input class="form-control" disabled id="iPrice" type="text">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="iQtyOnHand" class="form-label">Qty On Hand :</label>
+                        <input class="form-control" disabled id="iQtyOnHand" type="text">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <label for="buyQty" class="form-label">Ordered Qty :</label>
+                        <input class="form-control small" id="buyQty" type="text">
+                        <strong class="control-error text-danger" id="lblCheckQty"></strong>
+                    </div>
+                </div>
+            </div>
+            <!--total section-->
+            <div class="col-10 col-md-10 col-lg-3 p-3 mt-5 bg-white shadow-lg rounded-5 ubFt" style="height: max-content">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <h3 class="text-start p-2 text-danger rounded-5">Total :
+                            <input class="form-control" placeholder="RS: 0.00/=" disabled id="lblTotal" type="text">
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="discount" class="form-label">Discount</label>
+                        <input class="form-control" id="discount" type="number" role="spinbutton">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="subTotal" class="form-label">Sub Total (Rs.)</label>
+                        <input class="form-control" disabled id="subTotal" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="cash" class="form-label">Cash (Rs.)</label>
+                        <input class="form-control" id="cash" type="text">
+                        <strong class="control-error text-danger" id="lblCheckSubtotal"></strong>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <label for="balance" class="form-label">Balance (Rs.)</label>
+                        <input class="form-control" disabled id="balance" type="text">
+                    </div>
+                </div>
+            </div>
+
+            <!--Place Order Button And Add To Cart Button-->
+            <div class="row">
+                <nav class="navbar">
+                    <div class="container-fluid justify-content-end gap-2 me-5">
+                        <button class="btn btn-warning text-white" id="btnAddCart" type="button">Add To Cart <i
+                                class="bi bi-cart-plus-fill"></i></button>
+                        <button class="btn btn-success" id="btnPlaceOrder" type="button">Place Order <i class="bi bi-shop"></i></button>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Table -->
+            <section
+                    class="d-flex flex-column h-75 col-10 col-xl-11 bg-white shadow-lg rounded-5 align-items-center pt-3">
+                <h3 class="text-center bg-success p-2 text-light rounded-5 col-12">Cart Details</h3>
+                <div class="row overflow-auto h-60 col-12 col-lg-12 rounded-2 justify-content-around">
+                    <table class="table table-striped table-hover">
+                        <thead class="green-hd text-white sticky-top">
+                        <tr>
+                            <th scope="col">Item Code</th>
+                            <th scope="col">Item Name</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tableAddCart">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!--place orderDTO section end-->
+
+    <!--order details section start-->
+    <main id="orderDetailsSection" class="row justify-content-center">
+        <div class="row justify-content-evenly h-50">
+
+            <!-- Table Order -->
+            <section
+                    class="d-flex flex-column h-100 col-10 col-xl-11 bg-white shadow-lg rounded-5 align-items-center pt-3 mt-4 mb-4 ubFt">
+                <h3 class="text-center bg-success p-2 text-light rounded-5 col-12 ubFt">Orders</h3>
+                <div class="row overflow-auto h-60 col-9 col-lg-9 rounded-2 justify-content-around">
+                    <table class="table table-striped table-hover ubFt">
+                        <thead class="green-hd text-white sticky-top">
+                        <tr>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Customer ID</th>
+                            <th scope="col">Order Date</th>
+                            <th scope="col">Sub Total</th>
+                            <th scope="col">Discount</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tblOrder">
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Table Order Details-->
+            <section
+                    class="d-flex flex-column h-100 col-10 col-xl-11 bg-white shadow-lg rounded-5 align-items-center pt-3 ubFt">
+                <h3 class="text-center bg-success p-2 text-light rounded-5 col-12">Orders Details</h3>
+                <div class="row overflow-auto h-60 col-9 col-lg-9 rounded-2 justify-content-around">
+                    <table class="table table-striped table-hover ubFt">
+                        <thead class="green-hd text-white sticky-top">
+                        <tr>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Customer ID</th>
+                            <th scope="col">Item Code</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tblOrderDetails">
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <!--order details section end-->
+</section>
+<!-- JS For Bootstrap -->
+<script src="assets/js/bootstrap.min.js"></script>
+<!--jQuery-->
+<script src="assets/jQuery/jquery-3.6.1.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<!--SweetAlert-->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!--Data Arrays JS-->
+<script src="./db/DB.js"></script>
+<!--Dashboard JS -->
+<script src="./controller/DashboardController.js"></script>
+<!--Customer JS-->
+<script src="./controller/CustomerController.js"></script>
+<!--Item JS-->
+<script src="./controller/ItemController.js"></script>
+<!--Place Order JS-->
+<script src="./controller/PlaceOrderController.js"></script>
+<!--Order Details JS-->
+<script src="./controller/OrderViewsController.js"></script>
+<!--Place Order Model Object JS-->
+<script src="model/orderDTO.js"></script>
+<!--Place Order Details Model Object JS-->
+<script src="model/orderDetailDTO.js"></script>
+<!--Customer Model Object JS-->
+<script src="model/customerDTO.js"></script>
+<!--Item Model Object JS-->
+<script src="model/itemDTO.js"></script>
+</body>
+</html>

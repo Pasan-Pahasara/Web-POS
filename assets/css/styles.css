@@ -1,0 +1,111 @@
+/**
+ * Customized Scrollbar.
+ */
+::-webkit-scrollbar {
+    width: 4px;
+    background: #3f3838;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #01BCA2;
+}
+
+main{
+    height: 80vh;
+}
+
+.red-button {
+    background: #E94F5B;
+    border: #E94F5B;
+}
+
+.red-text{
+    color: #E94F5B;
+}
+
+.green-text{
+    color: #01BCA2;
+}
+
+.green-hd{
+   background: #01BCA2;
+}
+
+.green-ww-bg{
+    background: #55efc4;
+    color: #FFFFFF;
+    border: none;
+    font-size: 1em;
+}
+
+.orange-ww-bg{
+    background: #ff7675;
+    color: #FFFFFF;
+    border: none;
+}
+
+i:hover{
+    cursor: pointer;
+}
+
+.h-70 {
+    height: 70%!important;
+}
+
+.w-87 {
+    width: 87%!important;
+}
+
+.h-60 {
+    height: 60%!important;
+}
+
+/**
+* dashboard
+*/
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 90.5vh;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
